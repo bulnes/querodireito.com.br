@@ -1,3 +1,7 @@
 export default function Home() {
-  return <h1>QueroDireito.com.br</h1>;
+  return (
+    <div className="centered-container">
+      <h1>QueroDireito.com.br</h1>
+    </div>
+  );
 }

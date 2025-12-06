@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme {
+  --color-qd-100: #ffffff;
+  --color-qd-200: #f2f2f2;
+  --color-qd-300: #d9d9d9;
+  --color-qd-400: #606060;
+  --color-qd-500: #282a29;
+}
+
+@layer utilities {
+  .centered-container {
+    @apply mx-auto container;
+  }
+}
