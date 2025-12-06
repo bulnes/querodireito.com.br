@@ -139,14 +139,33 @@ async function crawl() {
     let html = htmlData.toString("utf8");
     const replacements = [];
 
-    // Extrair href/src
+    // --- REGEXES DE EXTRAÇÃO ---
     const linkRegex = /href\s*=\s*["']([^"']+)["']/gi;
     const srcRegex = /src\s*=\s*["']([^"']+)["']/gi;
+    // Regex para capturar o VALOR COMPLETO do srcset
+    const srcSetRegex = /srcset\s*=\s*["']([^"']+)["']/gi;
 
-    const refs = [
-      ...[...html.matchAll(linkRegex)].map((m) => m[1]),
-      ...[...html.matchAll(srcRegex)].map((m) => m[1]),
-    ];
+    // Regex para isolar a URL dentro do valor do srcset (que tem múltiplos pares)
+    const urlInSrcsetRegex = /(https?:\/\/[^\s,]+)/gi;
+    // ---------------------------
+
+    const refs = [];
+
+    // 1. Extrai href e src (diretamente)
+    refs.push(...[...html.matchAll(linkRegex)].map((m) => m[1]));
+    refs.push(...[...html.matchAll(srcRegex)].map((m) => m[1]));
+
+    // 2. Extrai e processa srcset (valor completo)
+    const srcsetMatches = [...html.matchAll(srcSetRegex)];
+    for (const match of srcsetMatches) {
+      const srcsetValue = match[1]; // O valor completo do srcset
+
+      // Aplicamos a nova regex no valor do srcset
+      const srcsetUrls = [...srcsetValue.matchAll(urlInSrcsetRegex)];
+
+      // Adicionamos todas as URLs encontradas à lista de referências
+      refs.push(...srcsetUrls.map((m) => m[1]));
+    }
 
     for (let ref of refs) {
       let resolved;
@@ -176,8 +195,17 @@ async function crawl() {
       }
     }
 
-    // Reescrever HTML
-    const rewrittenHtml = applyReplacements(html, replacements);
+    // Reescrever HTML com substituições de assets
+    let rewrittenHtml = applyReplacements(html, replacements);
+
+    // 🌟 NOVO PASSO: Substituir todas as ocorrências remanescentes do CDN
+    // O domínio é: cdn.prod.website-files.com/
+    // const cdnUrlPrefix = `https://${allowedAssetDomain}/`;
+
+    // Substitui a URL completa do CDN por apenas "/"
+    // Usamos expressão regular global (g) para pegar todas as ocorrências
+    // const cdnRegex = new RegExp(cdnUrlPrefix.replace(/([.])/g, "\\$1"), "g");
+    // rewrittenHtml = rewrittenHtml.replace(cdnRegex, "/assets/");
 
     // Salvar a página
     const pagePath = getFilePathFromUrl(current);
