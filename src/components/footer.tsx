@@ -44,7 +44,7 @@ export function Footer() {
         <div className="flex flex-col items-start justify-start gap-6 lg:items-end lg:justify-end lg:gap-2">
           <Logo isReversed noHeading />
 
-          <p className="text-base lg:text-lg flex flex-col items-start justify-start lg:items-end lg:text-right max-w-60 lg:max-w-80">
+          <p className="text-base lg:text-lg flex flex-col items-start justify-start lg:items-end lg:text-right max-w-64 lg:max-w-80">
             <span>
               Conectamos você com advogados especialistas no seu problema.{" "}
             </span>
