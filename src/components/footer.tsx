@@ -7,31 +7,31 @@ const footerContent = [
   {
     sectionTitle: "Serviços",
     items: [
-      { title: "Advogado Trabalhista", href: "/servicos/advogado-trabalhista" },
+      { title: "Advogado Trabalhista", href: "#" },
       {
         title: "Advogado Previdenciário",
-        href: "/servicos/advogado-previdenciario",
+        href: "#",
       },
       {
         title: "Advogado do Consumidor",
-        href: "/servicos/advogado-do-consumidor",
+        href: "#",
       },
-      { title: "Advogado de Família", href: "/servicos/advogado-de-familia" },
-      { title: "Advogado Criminal", href: "/servicos/advogado-criminal" },
+      { title: "Advogado de Família", href: "#" },
+      { title: "Advogado Criminal", href: "#" },
     ],
   },
   {
     sectionTitle: "Localidades",
-    items: [{ title: "Onde atendemos", href: "/localidades/onde-atendemos" }],
+    items: [{ title: "Onde atendemos", href: "#" }],
   },
   {
     sectionTitle: "Institucional",
     items: [
       {
         title: "Política de Privacidade",
-        href: "/institucional/politica-de-privacidade",
+        href: "#",
       },
-      { title: "Termos de Uso", href: "/institucional/termos-de-uso" },
+      { title: "Termos de Uso", href: "#" },
     ],
   },
 ];
@@ -59,7 +59,7 @@ export function Footer() {
               <h2 className="font-semibold mb-2">{section.sectionTitle}</h2>
               <ul className="flex flex-col gap-2">
                 {section.items.map((item) => (
-                  <li key={item.href}>
+                  <li key={item.title}>
                     <Link
                       href={item.href}
                       className="text-qd-700 hover:underline flex items-center justify-start gap-2"
@@ -91,7 +91,7 @@ export function Footer() {
             </p>
           </div>
 
-          <p>
+          <div>
             <strong className="font-semibold">Endereço:</strong>
             <address className="not-italic flex flex-col items-start">
               <span>Avenida Paulista, 1636</span>
@@ -100,7 +100,7 @@ export function Footer() {
               <span>São Paulo — SP</span>
               <span>CEP: 01310-200</span>
             </address>
-          </p>
+          </div>
 
           <p className="flex items-center gap-1">
             <strong className="font-semibold">Contato</strong>:{" "}

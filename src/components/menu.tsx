@@ -22,22 +22,22 @@ const menuContent = [
   {
     sectionTitle: "Serviços",
     items: [
-      { title: "Advogado Trabalhista", href: "/servicos/advogado-trabalhista" },
+      { title: "Advogado Trabalhista", href: "#" },
       {
         title: "Advogado Previdenciário",
-        href: "/servicos/advogado-previdenciario",
+        href: "#",
       },
       {
         title: "Advogado do Consumidor",
-        href: "/servicos/advogado-do-consumidor",
+        href: "#",
       },
-      { title: "Advogado de Família", href: "/servicos/advogado-de-familia" },
-      { title: "Advogado Criminal", href: "/servicos/advogado-criminal" },
+      { title: "Advogado de Família", href: "#" },
+      { title: "Advogado Criminal", href: "#" },
     ],
   },
   {
     sectionTitle: "Localidades",
-    items: [{ title: "Onde atendemos", href: "/localidades/onde-atendemos" }],
+    items: [{ title: "Onde atendemos", href: "#" }],
   },
 ];
 
