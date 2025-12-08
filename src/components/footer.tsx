@@ -38,7 +38,7 @@ const footerContent = [
 
 export function Footer() {
   return (
-    <footer className="px-4 lg:px-0">
+    <footer className="my-8 px-4 lg:px-0">
       <div className="centered-container flex flex-col gap-7 lg:flex-row-reverse lg:items-start lg:justify-between mb-8 lg:mb-16">
         {/* Logo */}
         <div className="flex flex-col items-start justify-start gap-6 lg:items-end lg:justify-end lg:gap-2">
