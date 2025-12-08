@@ -56,7 +56,7 @@ export function Footer() {
         <div className="flex flex-col items-start justify-start gap-6">
           {footerContent.map((section) => (
             <section key={section.sectionTitle} className="w-full">
-              <h2 className="font-semibold mb-2">{section.sectionTitle}</h2>
+              <h3 className="font-semibold mb-2">{section.sectionTitle}</h3>
               <ul className="flex flex-col gap-2">
                 {section.items.map((item) => (
                   <li key={item.title}>
@@ -77,7 +77,7 @@ export function Footer() {
 
         {/* Informações da empresa */}
         <section className="space-y-2">
-          <h2 className="font-semibold">Informações da empresa</h2>
+          <h3 className="font-semibold">Informações da empresa</h3>
 
           <div>
             <p>
@@ -119,7 +119,7 @@ export function Footer() {
 
       <div className="centered-container mb-9">
         <section className="space-y-0">
-          <h2 className="font-semibold">Aviso legal</h2>
+          <h3 className="font-semibold">Aviso legal</h3>
 
           <p>
             A Quero Direito é uma plataforma de conexão entre usuários e
