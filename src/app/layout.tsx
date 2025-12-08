@@ -12,7 +12,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${openSans.variable} antialiased`}>
+      <body className={`${openSans.variable} text-qd-500 antialiased`}>
         <Header />
         <main>{children}</main>
         <Footer />

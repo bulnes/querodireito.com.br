@@ -44,7 +44,7 @@ export function Menu() {
   return (
     <Drawer direction="right">
       <DrawerTrigger
-        className="cursor-pointer h-full w-12 flex items-center justify-end"
+        className="cursor-pointer h-full w-12 flex items-center justify-center"
         aria-label="Abrir menu"
       >
         <MenuIcon />
@@ -55,7 +55,7 @@ export function Menu() {
             <Logo />
 
             <DrawerClose
-              className="cursor-pointer h-full w-12 flex items-center justify-end"
+              className="cursor-pointer h-full w-12 flex items-center justify-center"
               aria-label="Fechar menu"
             >
               <CloseIcon />
@@ -91,7 +91,7 @@ export function Menu() {
           <DrawerClose>
             <Button
               variant="outline"
-              className="w-full cursor-pointer h-12 text-lg rounded-full"
+              className="default-cta"
               aria-label="Fechar menu"
             >
               Fechar
