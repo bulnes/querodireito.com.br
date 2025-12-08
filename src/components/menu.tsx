@@ -1,5 +1,6 @@
 "use client";
 
+import { CTA } from "@/components/cta";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,9 +10,7 @@ import {
   DrawerFooter,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { getWhatsappLink } from "@/lib/utils";
 import {
-  ChevronRight as ChevronRightIcon,
   X as CloseIcon,
   Menu as MenuIcon,
   MoveRight as MoveRightIcon,
@@ -42,8 +41,6 @@ const menuContent = [
 ];
 
 export function Menu() {
-  const whatsAppLink = getWhatsappLink();
-
   return (
     <Drawer direction="right">
       <DrawerTrigger
@@ -89,19 +86,12 @@ export function Menu() {
         </main>
 
         <DrawerFooter>
-          <Link href={whatsAppLink} target="_blank" rel="noopener noreferrer">
-            <Button className="w-full cursor-pointer h-12 rounded-full">
-              Quero falar com especialista
-              <span className="ml-1 bg-qd-100 rounded-full text-qd-500">
-                <ChevronRightIcon />
-              </span>
-            </Button>
-          </Link>
+          <CTA />
 
           <DrawerClose>
             <Button
               variant="outline"
-              className="w-full cursor-pointer h-12 rounded-full"
+              className="w-full cursor-pointer h-12 text-lg rounded-full"
               aria-label="Fechar menu"
             >
               Fechar
