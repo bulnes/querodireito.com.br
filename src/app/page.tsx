@@ -1,4 +1,5 @@
 import { Areas } from "@/components/areas";
+import { ChatSection } from "@/components/chat-section";
 import { Jumbotron } from "@/components/jumbotron";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <Jumbotron />
       <Areas />
+      <ChatSection />
     </>
   );
 }

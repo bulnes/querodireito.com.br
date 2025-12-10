@@ -1,4 +1,5 @@
 import { Card } from "@/components/card";
+import { Heading2 } from "@/components/heading-2";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
@@ -115,9 +116,8 @@ export function Areas() {
     <section className="centered-container default-section-space">
       <div className="flex flex-col gap-5 lg:grid lg:grid-cols-3">
         <div className="w-full pr-6 py-5 lg:pr-28 lg:py-7">
-          <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-            Em qual área do direito está o seu problema?
-          </h2>
+          <Heading2>Em qual área do direito está o seu problema?</Heading2>
+
           <p className="text-lg lg:text-2xl">
             Escolha um dos problemas ou áreas abaixo para entender seus direitos
             e receber ajuda:
