@@ -39,6 +39,10 @@ const footerContent = [
 export function Footer() {
   return (
     <footer className="default-section-space">
+      <div className="centered-container mb-8">
+        <hr className="my-6 border border-qd-200" />
+      </div>
+
       <div className="centered-container flex flex-col gap-7 lg:flex-row-reverse lg:items-start lg:justify-between mb-8 lg:mb-16">
         {/* Logo */}
         <div className="flex flex-col items-start justify-start gap-6 lg:items-end lg:justify-end lg:gap-2">
@@ -131,7 +135,7 @@ export function Footer() {
           <p>Simples. Claro. Seguro.</p>
         </section>
 
-        <hr className="my-6 border-2 border-qd-200" />
+        <hr className="my-6 border border-qd-200" />
 
         <p className="text-qd-500 text-left">
           © {new Date().getFullYear()} {SITE_NAME}. Todos os direitos
