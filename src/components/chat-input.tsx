@@ -10,7 +10,7 @@ export function ChatInput() {
         className="flex-1 bg-qd-100 text-qd-500"
       />
 
-      <Button size="icon" className="rounded-full">
+      <Button size="icon" className="rounded-full" aria-label="Enviar mensagem">
         <Send size={18} />
       </Button>
     </div>
