@@ -1,3 +1,4 @@
+import { Card } from "@/components/card";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
@@ -124,10 +125,7 @@ export function Areas() {
         </div>
 
         {sections.map((section) => (
-          <div
-            key={section.type}
-            className="w-full bg-qd-200 px-3 py-5 lg:px-6 lg:py-7 rounded-2xl"
-          >
+          <Card key={section.type}>
             <h3 className="text-xl lg:text-2xl mb-3 ml-3">
               Advogado <strong className="font-bold">{section.type}</strong>
             </h3>
@@ -153,7 +151,7 @@ export function Areas() {
                 {section.footer.label}
               </Link>
             </div>
-          </div>
+          </Card>
         ))}
       </div>
     </section>
