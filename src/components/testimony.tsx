@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { SITE_NAME } from "@/constants";
+import { cn } from "@/lib/utils";
 import { Star, StarHalf } from "lucide-react";
 import Image from "next/image";
 
@@ -84,35 +85,24 @@ export function Testimony() {
           </CarouselContent>
 
           <div className="flex items-center justify-end gap-2 mt-4">
-            <CarouselPrevious className="static translate-y-0 w-12 h-12 rounded-2xl border shadow-sm bg-qd-500 text-white disabled:bg-gray-300 disabled:text-black" />
-            <CarouselNext className="static translate-y-0 w-12 h-12 rounded-2xl border shadow-sm bg-qd-500 text-white disabled:bg-gray-300 disabled:text-black" />
+            <CarouselPrevious
+              className={cn(
+                "static translate-y-0 w-12 h-12 rounded-2xl border shadow-sm bg-qd-500 text-white disabled:bg-gray-300 disabled:text-black",
+                {
+                  "lg:hidden": testimonies.length < 4,
+                }
+              )}
+            />
+            <CarouselNext
+              className={cn(
+                "static translate-y-0 w-12 h-12 rounded-2xl border shadow-sm bg-qd-500 text-white disabled:bg-gray-300 disabled:text-black",
+                {
+                  "lg:hidden": testimonies.length < 4,
+                }
+              )}
+            />
           </div>
         </Carousel>
-
-        {/* <div className="flex flex-col gap-4 lg:grid lg:grid-cols-3 lg:gap-6">
-          {testimonies.map((testimony) => (
-            <div
-              key={testimony.name}
-              className="flex flex-col lg:flex-col-reverse items-start gap-4 lg:gap-6 bg-qd-100 p-4 rounded-2xl"
-            >
-              <div className="flex items-center gap-4">
-                <Image
-                  src="/_media/images/profile-cover.png"
-                  alt=""
-                  width={60}
-                  height={60}
-                  className="rounded-full"
-                />
-                <div>
-                  <p className="font-bold">{testimony.name}</p>
-                  <p className="text-qd-700">{testimony.role}</p>
-                </div>
-              </div>
-
-              <p>&ldquo;{testimony.description}&rdquo;</p>
-            </div>
-          ))}
-        </div> */}
       </Card>
     </section>
   );
