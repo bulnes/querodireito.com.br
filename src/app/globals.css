@@ -140,3 +140,38 @@
     @apply bg-background text-foreground;
   }
 }
+
+.grid-steps {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "a d"
+    "b d"
+    "c c";
+}
+
+.step-a {
+  grid-area: a;
+}
+.step-b {
+  grid-area: b;
+}
+.step-c {
+  grid-area: c;
+}
+.step-d {
+  grid-area: d;
+}
+
+/* Mobile = 1 coluna */
+@media (max-width: 1024px) {
+  .grid-steps {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "a"
+      "b"
+      "c"
+      "d";
+  }
+}

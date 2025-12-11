@@ -10,7 +10,7 @@ export function Card({
   return (
     <div
       className={cn(
-        "w-full bg-qd-200 px-3 py-5 lg:px-6 lg:py-7 rounded-2xl",
+        "w-full bg-qd-200 px-4 py-5 lg:px-6 lg:py-7 rounded-2xl",
         className
       )}
     >
