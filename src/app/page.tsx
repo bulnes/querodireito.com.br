@@ -1,5 +1,6 @@
 import { Areas } from "@/components/areas";
 import { ChatSection } from "@/components/chat-section";
+import { Faq } from "@/components/faq";
 import { Jumbotron } from "@/components/jumbotron";
 import { Steps } from "@/components/steps";
 import { Testimony } from "@/components/testimony";
@@ -14,6 +15,7 @@ export default function Home() {
       <Steps />
       <Why />
       <Testimony />
+      <Faq />
     </>
   );
 }
