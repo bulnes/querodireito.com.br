@@ -37,7 +37,7 @@ export function Jumbotron() {
 
       <div className="hidden lg:block lg:max-w-3/5">
         <Image
-          src="/_media/images/jumbotron-cover-desktop.png"
+          src="/_media/images/jumbotron-cover-desktop.jpeg"
           alt=""
           width={900}
           height={900}
