@@ -10,7 +10,10 @@ export function Heading2({
   return (
     <h2
       {...props}
-      className={cn("text-2xl lg:text-3xl font-bold mb-4", props?.className)}
+      className={cn(
+        "text-2xl lg:text-4xl font-semibold mb-4",
+        props?.className
+      )}
     >
       {children}
     </h2>

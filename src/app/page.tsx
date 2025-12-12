@@ -4,6 +4,7 @@ import { CountryAreas } from "@/components/country-areas";
 import { Faq } from "@/components/faq";
 import { Jumbotron } from "@/components/jumbotron";
 import { Steps } from "@/components/steps";
+import { TalkToUs } from "@/components/talk-to-us";
 import { Testimony } from "@/components/testimony";
 import { Why } from "@/components/why";
 
@@ -18,6 +19,7 @@ export default function Home() {
       <Testimony />
       <Faq />
       <CountryAreas />
+      <TalkToUs />
     </>
   );
 }
