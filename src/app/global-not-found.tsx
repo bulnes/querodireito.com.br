@@ -31,7 +31,11 @@ export default function GlobalNotFound() {
 
             <p className="max-w-xl lg:max-w-2xl text-lg lg:text-2xl mx-auto">
               A página que você está procurando não existe. Verifique o endereço
-              ou <Link href="/">volte para a página inicial</Link>.
+              ou{" "}
+              <Link href="/" className="underline">
+                volte para a página inicial
+              </Link>
+              .
             </p>
           </section>
 
