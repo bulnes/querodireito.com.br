@@ -6,7 +6,7 @@ export function Jumbotron() {
     <section className="centered-container mb-8 mt-8 lg:mt-0 px-4 lg:px-0 flex flex-col lg:flex-row lg:items-center lg:justify-between">
       <div className="lg:max-w-2/5 lg:pr-32">
         <div className="lg:max-w-lg">
-          <h2 className="text-2xl font-bold text-gray-900 mb-5 lg:text-3xl xl:text-4xl lg:mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-5 lg:text-3xl xl:text-5xl lg:font-medium lg:mb-8">
             Conectamos você com advogados especialistas no seu problema. É
             rápido e gratuito.
           </h2>
