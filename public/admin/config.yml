@@ -4,7 +4,7 @@ backend:
 
 locale: "pt"
 
-media_folder: "_media/images/uploads"
+media_folder: "public/_media/uploads"
 
 publish_mode: editorial_workflow
 
