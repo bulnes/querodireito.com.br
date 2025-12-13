@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: https://github.com/bulnes/querodireito.com.br.git # Path to your GitHub repository
+  repo: bulnes/querodireito.com.br.git # Path to your GitHub repository
 
-media_folder: "_media/images/uploads"
+# media_folder: "_media/images/uploads"
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
