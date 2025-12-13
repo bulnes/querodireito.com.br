@@ -2,6 +2,7 @@ backend:
   name: github
   repo: bulnes/querodireito.com.br
   branch: main
+  auth_type: pkce
   base_url: https://querodireito-com-br.vercel.app
   auth_endpoint: api/auth
 
