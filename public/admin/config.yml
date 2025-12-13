@@ -2,7 +2,7 @@ backend:
   name: github
   repo: bulnes/querodireito.com.br.git
 
-# media_folder: "_media/images/uploads"
+media_folder: "_media/images/uploads"
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
