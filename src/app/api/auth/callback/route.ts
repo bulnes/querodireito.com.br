@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
+  const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
 
   if (!code) {
@@ -26,32 +26,29 @@ export async function GET(request: Request) {
 
   const tokenData = await tokenResponse.json();
 
-  if (!tokenData.access_token) {
-    return NextResponse.json(
-      { error: "Failed to get access token" },
-      { status: 400 }
-    );
-  }
+  const accessToken = tokenData.access_token;
 
-  /**
-   * Decap espera que o token seja enviado via postMessage
-   */
-  const script = `
-    <script>
-      window.opener.postMessage(
-        {
-          token: "${tokenData.access_token}",
-          provider: "github"
-        },
-        "*"
-      );
-      window.close();
-    </script>
-  `;
-
-  return new NextResponse(script, {
-    headers: {
-      "Content-Type": "text/html",
-    },
-  });
+  return new NextResponse(
+    `
+    <html>
+      <body>
+        <script>
+          window.opener.postMessage(
+            {
+              token: "${accessToken}",
+              provider: "github"
+            },
+            "${origin}"
+          );
+          window.close();
+        </script>
+      </body>
+    </html>
+    `,
+    {
+      headers: {
+        "Content-Type": "text/html",
+      },
+    }
+  );
 }
