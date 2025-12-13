@@ -1,3 +1,4 @@
+import { Breadcrumb } from "@/components/breadcrumb";
 import { Problems } from "@/components/problems";
 
 interface PageProps {
@@ -6,10 +7,11 @@ interface PageProps {
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
-  console.log([...slug].join("/"));
+  const pathname = `/${[...slug].join("/")}`;
 
   return (
     <>
+      <Breadcrumb pathname={pathname} />
       <Problems />
     </>
   );

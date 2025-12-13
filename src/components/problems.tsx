@@ -74,9 +74,9 @@ export function Problems() {
           </h3>
 
           <div className="flex flex-col gap-3 lg:grid lg:grid-cols-3">
-            {links.map((link) => (
+            {links.map((link, index) => (
               <Link
-                key={link.label}
+                key={link.label + index}
                 href={link.url}
                 className="flex items-center justify-between bg-qd-100 p-4 rounded-full"
               >

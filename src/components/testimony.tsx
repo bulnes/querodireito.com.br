@@ -60,9 +60,9 @@ export function Testimony() {
       <Card className="space-y-6 lg:pt-10">
         <Carousel>
           <CarouselContent>
-            {testimonies.map((testimony) => (
+            {testimonies.map((testimony, index) => (
               <CarouselItem
-                key={testimony.name}
+                key={testimony.name + index}
                 className="basis-full lg:basis-1/3"
               >
                 <div className="flex flex-col lg:flex-col-reverse items-start gap-4 lg:gap-6 bg-qd-100 p-4 rounded-2xl">
