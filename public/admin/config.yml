@@ -1,8 +1,13 @@
 backend:
   name: github
   repo: bulnes/querodireito.com.br
+  branch: main
+  base_url: https://querodireito-com-br.vercel.app
+  auth_endpoint: api/auth
 
 locale: "pt"
+site_url: https://querodireito-com-br.vercel.app
+display_url: https://querodireito-com-br.vercel.app
 
 media_folder: "public/_media/uploads"
 
