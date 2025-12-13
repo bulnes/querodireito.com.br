@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: https://github.com/bulnes/querodireito.com.br # Path to your GitHub repository
+  repo: https://github.com/bulnes/querodireito.com.br.git # Path to your GitHub repository
 
 media_folder: "_media/images/uploads"
 
