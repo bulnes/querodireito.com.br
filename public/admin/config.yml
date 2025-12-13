@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: owner-name/repo-name # Path to your GitHub repository
+  repo: https://github.com/bulnes/querodireito.com.br # Path to your GitHub repository
 
 # This line should *not* be indented
 media_folder: "_media/images/uploads" # Media files will be stored in the repo under images/uploads
