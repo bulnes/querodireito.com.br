@@ -115,7 +115,7 @@ export function BlogSession() {
             <CarouselNext className="lg:hidden" />
           </Carousel>
 
-          <Carousel className="max-w-3/4 mx-auto mb-10">
+          <Carousel className="lg:max-w-3/4 mx-auto mb-10">
             <CarouselContent>
               {defaultPosts.map((post) => (
                 <CarouselItem
@@ -151,12 +151,14 @@ export function BlogSession() {
               ))}
             </CarouselContent>
 
-            <CarouselPrevious className="lg:hidden" />
-            <CarouselNext className="lg:hidden" />
+            <div className="flex items-center justify-end gap-2 mt-4">
+              <CarouselPrevious className="static translate-y-0 w-12 h-12 rounded-2xl border shadow-sm bg-qd-500 text-white disabled:bg-gray-300 disabled:text-black lg:hidden" />
+              <CarouselNext className="static translate-y-0 w-12 h-12 rounded-2xl border shadow-sm bg-qd-500 text-white disabled:bg-gray-300 disabled:text-black lg:hidden" />
+            </div>
           </Carousel>
 
           <Link href="#" className="block text-center">
-            <Button className="default-cta bg-qd-100 text-qd-500 hover:text-qd-100 max-w-1/2">
+            <Button className="default-cta bg-qd-100 text-qd-500 hover:text-qd-100 lg:max-w-1/2">
               Ver mais conteúdos
               <span className="ml-1 bg-qd-500 rounded-full text-qd-100">
                 <ChevronRightIcon />
