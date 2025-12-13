@@ -1,14 +1,17 @@
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request) {
-  const { searchParams, origin } = new URL(request.url);
-  const code = searchParams.get("code");
+export async function GET(req: Request) {
+  const url = new URL(req.url);
+  const code = url.searchParams.get("code");
 
   if (!code) {
-    return NextResponse.json({ error: "Missing code" }, { status: 400 });
+    return NextResponse.json(
+      { error: "Missing code" },
+      { status: 400 }
+    );
   }
 
-  const tokenResponse = await fetch(
+  const tokenRes = await fetch(
     "https://github.com/login/oauth/access_token",
     {
       method: "POST",
@@ -24,31 +27,7 @@ export async function GET(request: Request) {
     }
   );
 
-  const tokenData = await tokenResponse.json();
+  const token = await tokenRes.json();
 
-  const accessToken = tokenData.access_token;
-
-  return new NextResponse(
-    `
-    <html>
-      <body>
-        <script>
-          window.opener.postMessage(
-            {
-              token: "${accessToken}",
-              provider: "github"
-            },
-            "${origin}"
-          );
-          window.close();
-        </script>
-      </body>
-    </html>
-    `,
-    {
-      headers: {
-        "Content-Type": "text/html",
-      },
-    }
-  );
+  return NextResponse.json(token);
 }
