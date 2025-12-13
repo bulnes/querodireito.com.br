@@ -35,8 +35,8 @@ const testimonies = [
 
 export function Testimony() {
   return (
-    <section className="centered-container default-section-space">
-      <Card className="space-y-6">
+    <section className="centered-container default-section-space bg-qd-200 rounded-2xl lg:bg-white lg:rounded-none">
+      <div className="space-y-6 pb-6 px-4 pt-5 lg:px-0 lg:pt-0">
         <Heading2>O que os pessoas dizem sobre a {SITE_NAME}.</Heading2>
 
         <p className="max-w-xl lg:max-w-2xl text-lg lg:text-2xl">
@@ -44,8 +44,8 @@ export function Testimony() {
           entender seus direitos.
         </p>
 
-        <div className="flex flex-col items-start gap-2 bg-qd-100 p-4 rounded-2xl">
-          <p className="text-2xl font-bold flex">
+        <div className="flex flex-col lg:flex-row items-start lg:items-end gap-2 bg-qd-100 p-4 rounded-2xl">
+          <p className="text-2xl lg:text-4xl font-bold flex">
             <span className="mr-2">4.9</span>
             <Star fill="black" />
             <Star fill="black" />
@@ -55,7 +55,9 @@ export function Testimony() {
           </p>
           <p>+ 12 mil avaliações</p>
         </div>
+      </div>
 
+      <Card className="space-y-6 lg:pt-10">
         <Carousel>
           <CarouselContent>
             {testimonies.map((testimony) => (
