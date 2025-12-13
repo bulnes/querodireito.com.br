@@ -1,4 +1,5 @@
 import { Areas } from "@/components/areas";
+import { BlogSession } from "@/components/blog-session";
 import { ChatSection } from "@/components/chat-section";
 import { CountryAreas } from "@/components/country-areas";
 import { Faq } from "@/components/faq";
@@ -20,6 +21,7 @@ export default function Home() {
       <Faq />
       <CountryAreas />
       <TalkToUs />
+      <BlogSession />
     </>
   );
 }
