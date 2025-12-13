@@ -7,10 +7,10 @@ export function TalkToUs() {
   return (
     <section className="centered-container default-section-space">
       <Card className="flex flex-row items-center gap-32">
-        <div className="space-y-6 lg:space-y-16 px-4 lg:px-0 lg:max-w-md lg:pl-20">
+        <div className="space-y-6 xl:space-y-16 px-4 xl:px-0 xl:max-w-md mx-auto xl:pl-20">
           <Heading2>Pronto para entender seu caso?</Heading2>
 
-          <p className="text-lg lg:text-2xl">
+          <p className="text-lg xl:text-2xl">
             Conte rapidamente o que aconteceu e fale com um especialista —
             gratuito e sem compromisso.
           </p>
@@ -20,7 +20,7 @@ export function TalkToUs() {
             alt=""
             width={250}
             height={250}
-            className="mx-auto -mb-6 md:hidden"
+            className="mx-auto -mb-6 xl:hidden"
           />
 
           <CTA />
@@ -31,7 +31,7 @@ export function TalkToUs() {
           alt=""
           width={400}
           height={400}
-          className="hidden md:block rounded-2xl w-full"
+          className="hidden xl:block rounded-2xl w-full"
         />
       </Card>
     </section>
