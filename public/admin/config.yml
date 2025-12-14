@@ -1,12 +1,9 @@
+local_backend: true
+
 backend:
   name: github
   repo: bulnes/querodireito.com.br
   branch: main
-  auth_scope: repo
-  app_id: Ov23libiwX7LgfBuHLo7
-  # auth_type: pkce
-  # base_url: https://querodireito-com-br.vercel.app
-  # auth_endpoint: api/auth
 
 locale: "pt"
 site_url: https://querodireito-com-br.vercel.app
