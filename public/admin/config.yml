@@ -1,4 +1,4 @@
-local_backend: true
+local_backend: false
 
 # Use DecapBridge PKCE auth (required)
 backend:
