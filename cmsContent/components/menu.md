@@ -5,6 +5,7 @@ sections:
       - label: Advogado Trabalhista
         url: /
       - label: Advogado Previdenciário
+        url: /
       - label: Advogado do Consumidor
         url: /
       - label: Advogado da Família
@@ -14,7 +15,5 @@ sections:
   - title: Localidades
     links:
       - label: Onde atendemos
-        url: /
-      - label: Canais de atendimento
         url: /
 ---
