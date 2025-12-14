@@ -27,7 +27,13 @@ export function getMarkup(
 ): matter.GrayMatterFile<string> | null {
   /* Converts specific file to a gray-matter object */
   try {
-    const file = matter.read(path.join(process.cwd(), directory, filename));
+    // Check if file exists
+    const filePath = path.join(process.cwd(), directory, filename);
+    if (!fs.existsSync(filePath)) {
+      return null;
+    }
+
+    const file = matter.read(filePath);
     return file;
   } catch (error) {
     console.error(error);
