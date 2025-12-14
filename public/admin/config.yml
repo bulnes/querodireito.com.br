@@ -1,3 +1,5 @@
+local_backend: false
+
 # Use DecapBridge PKCE auth (required)
 backend:
   name: git-gateway
@@ -39,7 +41,42 @@ media_folder: "public/_media/uploads"
 
 publish_mode: editorial_workflow
 
+editor:
+  preview: false
+
 collections:
+  - label: "Componentes"
+    name: "components"
+    files:
+      - label: "Menu"
+        name: "menu"
+        file: "cmsContent/components/menu.md"
+        fields:
+          - label: Seções
+            label_singular: Seção
+            name: sections
+            widget: list
+            fields:
+              - { label: "Título da seção", name: title, widget: string }
+              - label: Links
+                label_singular: Link
+                name: links
+                widget: list
+                fields:
+                  - { label: Texto, name: label, widget: string }
+                  - { label: URL, name: url, widget: string }
+      - label: "Locations Page"
+        name: "locations"
+        file: "site/content/locations.yml"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Intro, name: intro, widget: markdown }
+          - label: Locations
+            name: locations
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Address, name: address, widget: string }
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
     folder: "cmsContent/blog" # The path to the folder where the documents are stored

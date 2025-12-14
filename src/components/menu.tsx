@@ -1,5 +1,6 @@
 "use client";
 
+import { DecapMenu } from "@/@types/decap-menu";
 import { CTA } from "@/components/cta";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
@@ -17,30 +18,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-const menuContent = [
-  {
-    sectionTitle: "Serviços",
-    items: [
-      { title: "Advogado Trabalhista", href: "#" },
-      {
-        title: "Advogado Previdenciário",
-        href: "#",
-      },
-      {
-        title: "Advogado do Consumidor",
-        href: "#",
-      },
-      { title: "Advogado de Família", href: "#" },
-      { title: "Advogado Criminal", href: "#" },
-    ],
-  },
-  {
-    sectionTitle: "Localidades",
-    items: [{ title: "Onde atendemos", href: "#" }],
-  },
-];
-
-export function Menu() {
+export function Menu({ sections }: { sections: DecapMenu["sections"] }) {
   return (
     <Drawer direction="right">
       <DrawerTrigger
@@ -64,17 +42,18 @@ export function Menu() {
         </header>
 
         <main className="flex flex-col items-start justify-start gap-6 p-4">
-          {menuContent.map((section) => (
-            <section key={section.sectionTitle} className="w-full">
-              <h2 className="font-semibold mb-2">{section.sectionTitle}</h2>
+          {sections.map((section) => (
+            <section key={section.title} className="w-full">
+              <h2 className="font-semibold mb-2">{section.title}</h2>
+
               <ul className="flex flex-col gap-2">
-                {section.items.map((item) => (
-                  <li key={item.href}>
+                {section.links.map((sectionLink) => (
+                  <li key={sectionLink.label + sectionLink.url}>
                     <Link
-                      href={item.href}
+                      href={sectionLink.url || "#"}
                       className="text-qd-700 hover:underline flex items-center justify-start gap-2"
                     >
-                      {item.title}
+                      {sectionLink.label}
 
                       <MoveRightIcon height={12} width={12} />
                     </Link>
