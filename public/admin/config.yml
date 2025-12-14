@@ -1,4 +1,4 @@
-local_backend: false
+local_backend: true
 
 # Use DecapBridge PKCE auth (required)
 backend:
@@ -38,8 +38,6 @@ locale: "pt"
 display_url: https://querodireito-com-br.vercel.app
 
 media_folder: "public/_media/uploads"
-
-publish_mode: editorial_workflow
 
 editor:
   preview: false
@@ -100,6 +98,17 @@ collections:
                 fields:
                   - { label: Texto, name: label, widget: string }
                   - { label: URL, name: url, widget: string }
+      - label: "Faq"
+        name: "faq"
+        file: "cmsContent/components/faq.md"
+        fields:
+          - label: Perguntas e Respostas
+            label_singular: item
+            name: qna
+            widget: list
+            fields:
+              - { label: "Pergunta", name: question, widget: string }
+              - { label: "Resposta", name: answer, widget: string }
 
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI

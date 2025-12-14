@@ -1,3 +1,4 @@
+import { DecapFaq } from "@/@types/decap-faq";
 import { Heading2 } from "@/components/heading-2";
 import {
   Accordion,
@@ -5,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { getMarkup } from "@/lib/cms-content";
 
 const faqItems = [
   {
@@ -40,6 +42,10 @@ const faqItems = [
 ];
 
 export function Faq() {
+  const { data } = getMarkup("cmsContent/components", "faq.md") as unknown as {
+    data: DecapFaq;
+  };
+
   return (
     <section className="centered-container default-section-space">
       <Heading2>Dúvidas mais comuns</Heading2>
@@ -50,7 +56,7 @@ export function Faq() {
       </p>
 
       <Accordion type="single" collapsible className="max-w-4xl">
-        {faqItems.map((item, index) => (
+        {data.qna.map((item, index) => (
           <AccordionItem value={`item-${index + 2}`} key={index}>
             <AccordionTrigger className="text-lg font-bold cursor-pointer hover:no-underline">
               {item.question}
