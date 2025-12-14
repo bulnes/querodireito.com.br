@@ -8,7 +8,7 @@ interface PageProps {
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
-  const pathname = `/${[...slug].join("/")}`;
+  const pathname = Array.isArray(slug) ? `/${slug.join("/")}` : `/${slug}`;
 
   return (
     <>
