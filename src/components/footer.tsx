@@ -1,42 +1,18 @@
+import { DecapFooter } from "@/@types/decap-footer";
 import { Logo } from "@/components/logo";
 import { SITE_NAME } from "@/constants";
+import { getMarkup } from "@/lib/cms-content";
 import { MoveRight as MoveRightIcon } from "lucide-react";
 import Link from "next/link";
 
-const footerContent = [
-  {
-    sectionTitle: "Serviços",
-    items: [
-      { title: "Advogado Trabalhista", href: "#" },
-      {
-        title: "Advogado Previdenciário",
-        href: "#",
-      },
-      {
-        title: "Advogado do Consumidor",
-        href: "#",
-      },
-      { title: "Advogado de Família", href: "#" },
-      { title: "Advogado Criminal", href: "#" },
-    ],
-  },
-  {
-    sectionTitle: "Localidades",
-    items: [{ title: "Onde atendemos", href: "#" }],
-  },
-  {
-    sectionTitle: "Institucional",
-    items: [
-      {
-        title: "Política de Privacidade",
-        href: "#",
-      },
-      { title: "Termos de Uso", href: "#" },
-    ],
-  },
-];
-
 export function Footer() {
+  const { data } = getMarkup(
+    "cmsContent/components",
+    "footer.md"
+  ) as unknown as {
+    data: DecapFooter;
+  };
+
   return (
     <footer className="default-section-space">
       <div className="centered-container mb-8">
@@ -58,17 +34,17 @@ export function Footer() {
 
         {/* Serviços */}
         <div className="flex flex-col items-start justify-start gap-6">
-          {footerContent.map((section) => (
-            <section key={section.sectionTitle} className="w-full">
-              <h3 className="font-semibold mb-2">{section.sectionTitle}</h3>
+          {data.sections.map((section) => (
+            <section key={section.title} className="w-full">
+              <h3 className="font-semibold mb-2">{section.title}</h3>
               <ul className="flex flex-col gap-2">
-                {section.items.map((item) => (
-                  <li key={item.title}>
+                {section.links.map((item) => (
+                  <li key={item.label}>
                     <Link
-                      href={item.href}
+                      href={item.url}
                       className="text-qd-700 hover:underline flex items-center justify-start gap-2"
                     >
-                      {item.title}
+                      {item.label}
 
                       <MoveRightIcon height={12} width={12} />
                     </Link>
@@ -85,39 +61,43 @@ export function Footer() {
 
           <div>
             <p>
-              <strong className="font-semibold">Razão Social:</strong> Caio
-              George Santos Assessoria LTDA
+              <strong className="font-semibold">Razão Social:</strong>{" "}
+              {data.razao_social}
             </p>
 
             <p>
-              <strong className="font-semibold">CNPJ:</strong>{" "}
-              42.958.930/0001-00
+              <strong className="font-semibold">CNPJ:</strong> {data.cnpj}
             </p>
           </div>
 
           <div>
             <strong className="font-semibold">Endereço:</strong>
             <address className="not-italic flex flex-col items-start">
-              <span>Avenida Paulista, 1636</span>
-              <span>Conj. 04 — Andar 15</span>
-              <span>Bela Vista</span>
-              <span>São Paulo — SP</span>
-              <span>CEP: 01310-200</span>
+              {data.address.split("\n").map((line, index) => (
+                <span key={index}>{line}</span>
+              ))}
             </address>
           </div>
 
           <p className="flex items-center gap-1">
             <strong className="font-semibold">Contato</strong>:{" "}
             <Link
-              href={"tel:+551151232482"}
+              href={`tel:${data.phone_number.replace(/[^+\d]/g, "")}`}
               className="flex items-center justify-start gap-1"
             >
-              <span>(11) 5123-2482</span>{" "}
+              <span>{data.phone_number}</span>{" "}
               <MoveRightIcon height={12} width={12} />
             </Link>
           </p>
 
-          <p>atendimento@querodireito.com.br</p>
+          <p>
+            <Link
+              href={`mailto:${data.email}`}
+              className="flex items-center justify-start gap-1"
+            >
+              <span>{data.email}</span>
+            </Link>
+          </p>
         </section>
       </div>
 
@@ -125,14 +105,9 @@ export function Footer() {
         <section className="space-y-0">
           <h3 className="font-semibold">Aviso legal</h3>
 
-          <p>
-            A Quero Direito é uma plataforma de conexão entre usuários e
-            advogados. Não prestamos serviços jurídicos diretamente. A análise
-            inicial é gratuita. A contratação do advogado é opcional e feita
-            diretamente entre cliente e profissional.
-          </p>
-
-          <p>Simples. Claro. Seguro.</p>
+          {data.aviso_legal.split("\n").map((line, index) => (
+            <p key={index}>{line}</p>
+          ))}
         </section>
 
         <hr className="my-6 border border-qd-200" />

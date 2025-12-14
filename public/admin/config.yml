@@ -1,4 +1,4 @@
-local_backend: false
+local_backend: true
 
 # Use DecapBridge PKCE auth (required)
 backend:
@@ -65,18 +65,42 @@ collections:
                 fields:
                   - { label: Texto, name: label, widget: string }
                   - { label: URL, name: url, widget: string }
-      - label: "Locations Page"
-        name: "locations"
-        file: "site/content/locations.yml"
+      - label: "Rodapé"
+        name: "footer"
+        file: "cmsContent/components/footer.md"
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Intro, name: intro, widget: markdown }
-          - label: Locations
-            name: locations
+          - label: "Razão Social"
+            name: razao_social
+            widget: string
+          - label: "CNPJ"
+            name: cnpj
+            widget: string
+          - label: "Endereço"
+            name: address
+            widget: text
+          - label: "Telefone de contato"
+            name: phone_number
+            widget: string
+          - label: "E-mail de contato"
+            name: email
+            widget: string
+          - label: "Aviso legal"
+            name: aviso_legal
+            widget: text
+          - label: Seções
+            label_singular: Seção
+            name: sections
             widget: list
             fields:
-              - { label: Name, name: name, widget: string }
-              - { label: Address, name: address, widget: string }
+              - { label: "Título da seção", name: title, widget: string }
+              - label: Links
+                label_singular: Link
+                name: links
+                widget: list
+                fields:
+                  - { label: Texto, name: label, widget: string }
+                  - { label: URL, name: url, widget: string }
+
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
     folder: "cmsContent/blog" # The path to the folder where the documents are stored
